@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
-const API_URL = process.env.NEXT_API_URL;
+
+const API_URL = "https://ai-voice-assistant-backend-8yfy-theta.vercel.app"
 
 export default function Home() {
   const [isRecording, setIsRecording] = useState(false);

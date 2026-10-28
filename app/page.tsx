@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default function Home() {
   const [isRecording, setIsRecording] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false);
@@ -81,7 +81,7 @@ export default function Home() {
     setError("");
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/chat", {
+      const response = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export default function Home() {
             formData.append("audio", blob, "recording.webm");
 
             const response = await fetch(
-              "http://127.0.0.1:8000/transcribe",
+              "`${API_URL}/transcribe`",
               {
                 method: "POST",
                 body: formData,
@@ -278,7 +278,7 @@ export default function Home() {
 
 async function speakReply(text: string) {
   try {
-    const response = await fetch("http://127.0.0.1:8000/speak", {
+    const response = await fetch(`${API_URL}/speak`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

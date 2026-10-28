@@ -159,7 +159,7 @@ export default function Home() {
             formData.append("audio", blob, "recording.webm");
 
             const response = await fetch(
-              "`${API_URL}/transcribe`",
+              `${API_URL}/transcribe`,
               {
                 method: "POST",
                 body: formData,
@@ -226,7 +226,7 @@ export default function Home() {
   }
 
   async function handleTextSubmit(
-    event: React.FormEvent<HTMLFormElement>
+    event: React.SubmitEvent<HTMLFormElement>
   ) {
     event.preventDefault();
 
